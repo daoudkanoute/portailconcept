@@ -1,13 +1,13 @@
 /*
-Theme Name: Portail Concept
-Theme URI: http://www.portailconcept.com/
-Author: e2k pour Portail concept
+Theme Name: Portail cpt
+Theme URI: http://www.portailcpt.com/
+Author: e2k pour Portail cpt
 Author URI: http://www.e2k.fr/
-Description: Theme Portail concept by e2k
+Description: Theme Portail cpt by e2k
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: portailconcept
+Text Domain: portailcpt
 */
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
@@ -86,7 +86,7 @@ button:focus {
 	position: relative !important;
 	min-height: 100vh !important;
 	height: 100% !important;
-	overflow: hidden !important;
+	/*overflow: hidden;*/
 	display: -webkit-flex !important;
 	display: -ms-flexbox !important;
 	display: flex !important;

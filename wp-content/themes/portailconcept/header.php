@@ -17,4 +17,5 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri();?>/css/flickity.css" />
 	<script src="<?php echo get_template_directory_uri();?>/js/modernizr.custom.js"></script>
+
 </head>

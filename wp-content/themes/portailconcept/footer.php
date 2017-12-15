@@ -12,11 +12,14 @@ var ajaxpagination = {"ajaxurl":"<?php echo site_url(); ?>\/wp-admin\/admin-ajax
 	<script src="<?php echo get_template_directory_uri();?>/js/bootstrap.min.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/smoothscroll.js"></script>
 	<script src="<?php echo get_template_directory_uri();?>/js/main.js"></script>
+	<script src="<?php echo get_template_directory_uri();?>/js/infinite-scroll.pkgd.js"></script>
 
 	<script type="text/javascript">
 		$('.carousel').carousel({
 			interval:2600
 		});
+
 	</script>
+
 </body>
 </html>

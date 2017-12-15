@@ -29,12 +29,15 @@ function portailcpt_setup() {
 add_action( 'after_setup_theme', 'portailcpt_setup' );
 
 function asyncPortail(){
-	$post = new WP_Query('post_type=cpt_h_a_portail');
+	$post = new WP_Query(array('post_type' => 'cpt_h_a_portail'));
 	$i=1;
-	if($post->have_posts()):  while($post->have_posts()): $post->the_post();
+	if($post->have_posts()): ?>
+<div id="show_h_portail">
+<?php
+	 while($post->have_posts()): $post->the_post();
 ?>
-						<h3><?php echo ucfirst(explode('_',get_post_type())[3]); ?></h3>
-						<div class="item__content" style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
+						<!--<h3><?php echo ucfirst(explode('_',get_post_type())[3]); ?></h3>-->
+						<div class="item__content " style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
 							<div id="carouselIndicators_portail_<?php echo $i; ?>" class="carousel slide" data-ride="carousel">
 							  <ol class="carousel-indicators">
 							    <li data-target="#carouselIndicators_portail_<?php echo $i; ?>" data-slide-to="0" class="active"></li>
@@ -61,11 +64,21 @@ function asyncPortail(){
 							  </a>
 							  
 							</div>
-
+							<div class="item__details">
+								<ul>
+									<li><i class="icon icon-camera"></i><span><?php the_title(); ?></span></li>
+									<li><i class="icon icon-focal_length"></i><span>Alluminium</span></li>
+									<li><i class="icon icon-aperture"></i><span>sur-mesure</span></li>
+								</ul>
+							</div>
 						</div>
 <?php
 	$i++;
-	endwhile;endif;
+	endwhile;
+?>
+</div>
+<?php
+    endif;
 	die;
 }
 add_action( 'wp_ajax_nopriv_async', 'asyncPortail' );
@@ -73,11 +86,13 @@ add_action( 'wp_ajax_async', 'asyncPortail' );
 
 function asyncPortillon()
 {
-	$post = new WP_Query('post_type=cpt_h_a_portillons');
+	$post = new WP_Query(array('post_type' => 'cpt_h_a_portillons'));
 	$i=1;
-	if($post->have_posts()):  while($post->have_posts()): $post->the_post();
+	if($post->have_posts()): ?>
+<div id="show_h_portillons">
+<?php
+	 while($post->have_posts()): $post->the_post();
 ?>
-						<h3><?php echo ucfirst(explode('_',get_post_type())[3]); ?></h3>
 						<div class="item__content" style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
 							<div id="carouselIndicators_portail_<?php echo $i; ?>" class="carousel slide" data-ride="carousel">
 							  <ol class="carousel-indicators">
@@ -109,18 +124,23 @@ function asyncPortillon()
 						</div>
 <?php
 	$i++;
-	endwhile;endif;
+	endwhile;?>
+</div>
+<?php
+	endif;
 	die;
 }
 add_action( 'wp_ajax_nopriv_asyncPortillon', 'asyncPortillon' );
 add_action( 'wp_ajax_asyncPortillon', 'asyncPortillon' );
 
 function asyncCloture(){
-	$post = new WP_Query('post_type=cpt_h_a_cloture');
+	$post = new WP_Query(array('post_type' => 'cpt_h_a_cloture'));
 	$i=1;
-	if($post->have_posts()):  while($post->have_posts()): $post->the_post();
+	if($post->have_posts()):?>
+<div id="show_h_cloture">
+<?php
+	 while($post->have_posts()): $post->the_post();
 ?>
-						<h3><?php echo ucfirst(explode('_',get_post_type())[3]); ?></h3>
 						<div class="item__content" style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
 							<div id="carouselIndicators_portail_<?php echo $i; ?>" class="carousel slide" data-ride="carousel">
 							  <ol class="carousel-indicators">
@@ -152,18 +172,23 @@ function asyncCloture(){
 						</div>
 <?php
 	$i++;
-	endwhile;endif;
+	endwhile; ?>
+</div>
+<?php 
+	endif;
 	die;
 }
 add_action( 'wp_ajax_nopriv_asyncCloture', 'asyncCloture' );
 add_action( 'wp_ajax_asyncCloture', 'asyncCloture' );
 
 function asyncAutomatisme(){
-	$post = new WP_Query('post_type=cpt_h_a_automatisme');
+	$post = new WP_Query( array('post_type' => 'cpt_h_a_automatisme'));
 	$i=1;
-	if($post->have_posts()):  while($post->have_posts()): $post->the_post();
+	if($post->have_posts()):?>
+<div id="show_h_automatisme">
+<?php
+	 while($post->have_posts()): $post->the_post();
 ?>
-						<h3><?php echo ucfirst(explode('_',get_post_type())[3]); ?></h3>
 						<div class="item__content" style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
 							<div id="carouselIndicators_portail_<?php echo $i; ?>" class="carousel slide" data-ride="carousel">
 							  <ol class="carousel-indicators">
@@ -195,11 +220,110 @@ function asyncAutomatisme(){
 						</div>
 <?php
 	$i++;
-	endwhile;endif;
+	endwhile;?>
+</div>
+<?php 
+    endif;
 	die;
 }
 add_action( 'wp_ajax_nopriv_asyncAutomatisme', 'asyncAutomatisme' );
 add_action( 'wp_ajax_asyncAutomatisme', 'asyncAutomatisme' );
+
+function asyncCollectPortillon(){
+	$post = new WP_Query( array('post_type' => 'c_add_portillons'));
+	$i=1;
+	if($post->have_posts()):?>
+<div id="show_c_portillons" >
+<?php
+	 while($post->have_posts()): $post->the_post();
+?>
+						<div class="item__content" style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
+							<div id="carouselIndicators_portail_<?php echo $i; ?>" class="carousel slide" data-ride="carousel">
+							  <ol class="carousel-indicators">
+							    <li data-target="#carouselIndicators_portail_<?php echo $i; ?>" data-slide-to="0" class="active"></li>
+							    <li data-target="#carouselIndicators_portail_<?php echo $i; ?>" data-slide-to="1"></li>
+							  </ol>
+							  <div class="carousel-inner">
+								<div class="carousel-item active">
+								  <?php the_post_thumbnail('concept-carousel-thumbnails');?>
+								  <div class="carousel-caption d-none d-md-block">
+								    <h3><?php the_title(); ?></h3>
+								    <?php the_content(); ?>
+								    <p>
+								    <a href="<?php site_url();?>/contact" style="color:red!important">Demande de devis gratuit pour <?php the_title(); ?></a></p>
+								  </div>
+								</div>
+							  </div>
+							  <a class="carousel-control-prev" href="#carouselIndicators_portail_<?php echo $i; ?>" role="button" data-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Précedent</span>
+							  </a>
+							  <a class="carousel-control-next" href="#carouselIndicators_portail_<?php echo $i; ?>" role="button" data-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Suivant</span>
+							  </a>
+							  
+							</div>
+
+						</div>
+<?php
+	$i++;
+	endwhile;?>
+</div>
+<?php 
+    endif;
+	die;
+}
+add_action( 'wp_ajax_nopriv_asyncCollectPortillon', 'asyncCollectPortillon' );
+add_action( 'wp_ajax_asyncCollectPortillon', 'asyncCollectPortillon' );
+
+function asyncCollectCloture(){
+	$post = new WP_Query( array('post_type' => 'c_add_cloture'));
+	$i=1;
+	if($post->have_posts()):?>
+<div id="show_c_cloture" >
+<?php
+	 while($post->have_posts()): $post->the_post();
+?>
+						<div class="item__content" style='margin-top:20px!important;margin-bottom:20px!important;border-bottom: 1px solid gray'>
+							<div id="carouselIndicators_portail_<?php echo $i; ?>" class="carousel slide" data-ride="carousel">
+							  <ol class="carousel-indicators">
+							    <li data-target="#carouselIndicators_portail_<?php echo $i; ?>" data-slide-to="0" class="active"></li>
+							    <li data-target="#carouselIndicators_portail_<?php echo $i; ?>" data-slide-to="1"></li>
+							  </ol>
+							  <div class="carousel-inner">
+								<div class="carousel-item active">
+								  <?php the_post_thumbnail('concept-carousel-thumbnails');?>
+								  <div class="carousel-caption d-none d-md-block">
+								    <h3><?php the_title(); ?></h3>
+								    <?php the_content(); ?>
+								    <p>
+								    <a href="<?php site_url();?>/contact" style="color:red!important">Demande de devis gratuit pour <?php the_title(); ?></a></p>
+								  </div>
+								</div>
+							  </div>
+							  <a class="carousel-control-prev" href="#carouselIndicators_portail_<?php echo $i; ?>" role="button" data-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Précedent</span>
+							  </a>
+							  <a class="carousel-control-next" href="#carouselIndicators_portail_<?php echo $i; ?>" role="button" data-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Suivant</span>
+							  </a>
+							  
+							</div>
+
+						</div>
+<?php
+	$i++;
+	endwhile;?>
+</div>
+<?php 
+    endif;
+	die;
+}
+add_action( 'wp_ajax_nopriv_asyncCollectCloture', 'asyncCollectCloture' );
+add_action( 'wp_ajax_asyncCollectCloture', 'asyncCollectCloture' );
 
 
 function portailcpt_widgets_init()
